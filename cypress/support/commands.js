@@ -9,7 +9,7 @@ Cypress.Commands.add('cartWithProduct',()=>{
         //visit the homepage
         cy.visit('/')
         //Add the product to the cart
-        productCard.elements.addToCart(productData.name).click()
+        productCard.elements.addToCart(productData.products[0].name).click()
     })
     
 })

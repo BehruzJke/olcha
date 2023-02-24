@@ -4,7 +4,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 import cart from "../page objects/cart"
 import productData from '../../fixtures/product.json'
-describe('Catalog', () => {
+describe('Cart', () => {
     beforeEach('Visit the webiste', () => {
         cy.cartWithProduct()
         cy.visit('/ru/cart')
