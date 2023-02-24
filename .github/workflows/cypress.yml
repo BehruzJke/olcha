@@ -14,10 +14,6 @@ jobs:
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v5 # use the explicit version number
-        strategy:
-          fail-fast: false
-          matrix:
-            containers: [1,2]
         with:
           record: true
           parallel: true
