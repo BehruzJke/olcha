@@ -1,6 +1,6 @@
 class footer{
     elements = {
-
+        //Nothing to see here
     }
 }
 
