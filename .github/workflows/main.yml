@@ -5,7 +5,7 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    container: cypress/included
+    container: cypress/browsers
     steps:
       - name: Checkout
         uses: actions/checkout@v3
