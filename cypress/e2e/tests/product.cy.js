@@ -42,7 +42,7 @@ describe('Product',()=>{
     })
 
     // Buy with credit
-    it.only('Buy product with credit',()=>{
+    it('Buy product with credit',()=>{
         productPage.elements.buyWithCredit().click()
         cy.get('.popup__container').should('be.visible')
 
