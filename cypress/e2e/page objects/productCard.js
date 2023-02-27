@@ -16,7 +16,7 @@ class productCard{
             addToCart : (el) => cy.get('.popular__products-slider').find('.product-card').contains(`${el}`).parent().parent().parent().find('.product-card__to-card'),
             //Add to credit button 
             addToCredit : (el) => cy.get('.popular__products-slider').find('.product-card').contains(`${el}`).parent().parent().parent().find('.product-card__to-credit'),
-            //Count of the project after adding to the cart
+            //Count of the project after adding to cart
             count : (el) => cy.get('.popular__products-slider').find('.product-card').contains(`${el}`).parent().parent().parent().find('.count').find('input'),   
     }
 }

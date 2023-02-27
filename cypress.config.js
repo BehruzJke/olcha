@@ -9,7 +9,7 @@ module.exports = defineConfig({
     },
     baseUrl : 'https://olcha.uz',
     //Retry test 3 times in case of fail
-    retries : 3,
+    retries : 2,
     //Default timeout for page to load
     pageLoadTimeout : 15000
   },

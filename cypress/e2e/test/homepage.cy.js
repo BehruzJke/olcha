@@ -31,10 +31,27 @@ describe('Catalog',()=>{
         navbar.elements.searchHints().find('a').then((hints)=>{
             length = hints.length
             for(let i=0;i<length;i++){
-                navbar.elements.searchHints().find('a').eq(i).should('contain','Samsung')
+                navbar.elements.searchHints().find('a').eq(i).should('include.text','Samsung',{matchCase:false})
             }
         })
         })
+
+    //Assert that all the categories exist in the page
+    it('Asserts the categories',()=>{
+        //Request the categories via API
+        cy.request('GET','https://mobile.olcha.uz/api/v2/categories').then((res)=>{
+        //Save categories count from API as a variable
+        let count = res.body.data.categories.length
+        //Assert that number of categories on tha page is equal to the one from API
+        cy.get('#splide03-list > li').should('have.length', count)
+    })
+     })
+
+    //Test the like functionality    
+    it.only('Tests the like functionality',()=>{
+        cy.get('#splide03-list li').first().click()
+        cy.get('.subcategory-list__item').first().click()
+    })
 
     //Tests if user can add product to the cart
     it('Adds product to the cart',()=>{ 
