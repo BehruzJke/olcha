@@ -6,7 +6,9 @@ class navbar{
         searchInput : () => cy.get('.form-search__input'),
         searchHints : () => cy.get('.search-results-list'),
         liked : () => cy.get('[aria-label="go to favs"]'),
-        likedCount : () => this.elements.liked().find('span')
+        likedCount : () => this.elements.liked().find('span'),
+        catalogBtn : () => cy.get('.bottom-header__menu-btn'),
+        categories : () => cy.get('.menu-catalog__item')
     }
 }
 

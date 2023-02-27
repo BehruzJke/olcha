@@ -8,6 +8,7 @@ import productCard from "../page objects/productCard"
 import navbar from "../page objects/navbar"
 import cart from "../page objects/cart"
 import productData from "../../fixtures/product.json"
+import header from "../page objects/header"
 
 //Test suite for catalog
 describe('Catalog',()=>{
@@ -16,6 +17,13 @@ describe('Catalog',()=>{
         cy.visit('/ru')
     })
 
+    //Assert that all the urls in the page are correct
+    it.only('Test the urls in the page',()=>{
+        header.elements.phoneNumber().should('have.attr','href','tel:+998712022021')
+        navbar.elements.compareBtn().should('have.attr','href','/ru/compare')
+        navbar.elements.liked().should('have.attr','href','/ru/favorites')
+        navbar.elements.cart().should('have.attr','href','/ru/cart')
+    })
     //Tests the search input in the homepage
     it('Searches the product',()=>{
         //Locate the search web element through page object and type in it
@@ -44,11 +52,13 @@ describe('Catalog',()=>{
         let count = res.body.data.categories.length
         //Assert that number of categories on tha page is equal to the one from API
         cy.get('#splide03-list > li').should('have.length', count)
+        navbar.elements.catalogBtn().click()
+        navbar.elements.categories().should('have.length',count)
     })
      })
 
     //Test the like functionality    
-    it.only('Tests the like functionality',()=>{
+    it('Tests the like functionality',()=>{
         cy.get('#splide03-list li').first().click()
         cy.get('.subcategory-list__item').first().click()
     })

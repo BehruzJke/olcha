@@ -8,9 +8,21 @@ class productPage {
         //Compare button
         "compareBtn" : () => cy.contains('Добавить в сравнение'),
         //Like button of the product
-        likeBtn : () => cy.get('.catalog-page__controls-col').find('button').eq(1),
+        "likeBtn" : () => cy.get('.catalog-page__controls-col').find('button').eq(1),
         //Share button
-        "shareBtn" : () => cy.contains('Поделиться')
+        "shareBtn" : () => cy.contains('Поделиться'),
+        //Price
+        "price" : () => cy.get('.product-details__pricing').find('.price__main').eq(0),
+        //Price for pay in 12 months
+        "creditPrice" : () => cy.get('.product-details__pricing').find('.price__main').eq(1),
+        //Buy with credit
+        "buyWithCredit" : () => cy.contains('Купить в рассрочку'),
+        //Price options in markets
+        "priceOption" : (id) => cy.get('.product-details__content-bottom').find('.price__main').eq(id),
+        //Add to cart button
+        "addToCartBtn" : () => cy.contains('Добавить в корзину'),
+        //Buy in one click
+        "buyOneClickBtn" : () => cy.contains('Купить в один клик')
     }
     //Function to like the product
     like(){

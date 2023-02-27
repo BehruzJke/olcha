@@ -1,5 +1,6 @@
 //Import custom commands
 import './commands'
+import 'cypress-mochawesome-reporter/register';
 
 //Hide XHR logs in the Cypress app runner
 const app = window.top;
