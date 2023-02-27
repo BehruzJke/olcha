@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   cypress-run:
+    #run on OS : ubuntu, docker container : cypress/browsers
     runs-on: ubuntu-latest
     container: cypress/browsers
     steps:
@@ -15,8 +16,10 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v5 # use the explicit version number
         with:
+          #record the tests to integrate with Cypress Cloud
           record: true
           parallel: true
+          #Chrome browser for testing
           browser: chrome
         env:
           CYPRESS_RECORD_KEY : ${{ secrets.CYPRESS_RECORD_KEY }}
